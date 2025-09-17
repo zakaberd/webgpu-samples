@@ -1,0 +1,18 @@
+{
+  "fonts": [
+    "../../assets/font/ya-hei-ascii-msdf.json"
+  ],
+  "shaders": [
+    "../../shaders/basic.vert.wgsl",
+    "../../shaders/vertexPositionColor.frag.wgsl",
+    "msdfText.wgsl"
+  ],
+  "scripts": [
+    "main.ts",
+    "msdfText.ts"
+  ],
+  "utilities": [
+    "../util.ts",
+    "wgpu-matrix"
+  ]
+}

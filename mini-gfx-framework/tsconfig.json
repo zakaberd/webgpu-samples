@@ -1,0 +1,29 @@
+{
+    "compilerOptions":  {
+                            "target":  "ESNext",
+                            "useDefineForClassFields":  true,
+                            "module":  "ESNext",
+                            "moduleResolution":  "Bundler",
+                            "strict":  true,
+                            "jsx":  "react-jsx",
+                            "esModuleInterop":  true,
+                            "forceConsistentCasingInFileNames":  true,
+                            "resolveJsonModule":  true,
+                            "isolatedModules":  true,
+                            "noEmit":  true,
+                            "lib":  [
+                                        "ESNext",
+                                        "DOM",
+                                        "DOM.Iterable"
+                                    ],
+                            "types":  [
+                                          "vite/client",
+                                          "@webgpu/types"
+                                      ]
+                        },
+    "include":  [
+                    "src/**/*",
+                    "sandbox/**/*",
+                    "vite.config.ts"
+                ]
+}

@@ -1,0 +1,27 @@
+{
+    "name": "mini-gfx-framework",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "directories": {
+        "doc": "docs"
+    },
+    "scripts": {
+        "preview": "vite preview",
+        "build": "vite build",
+        "dev": "vite"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "type": "module",
+    "devDependencies": {
+        "@types/node": "^24.5.1",
+        "@webgpu/types": "^0.1.65",
+        "typescript": "^5.9.2",
+        "vite": "^7.1.5"
+    },
+    "dependencies": {
+        "wgpu-matrix": "^3.4.0"
+    }
+}
