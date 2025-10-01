@@ -1,7 +1,17 @@
 import type { SandboxScene } from './types';
 import { msdfTextScene } from './msdfTextScene';
+import { multipleCanvasesScene } from './multipleCanvasesScene';
+import { computeBoidsScene } from './computeBoidsScene';
+import { pointsScene } from './pointsScene';
+import { transparentCanvasScene } from './transparentCanvasScene';
 
-export const scenes: SandboxScene[] = [msdfTextScene];
+export const scenes: SandboxScene[] = [
+  msdfTextScene,
+  computeBoidsScene,
+  pointsScene,
+  transparentCanvasScene,
+  multipleCanvasesScene,
+];
 
 export const defaultSceneId = msdfTextScene.id;
 

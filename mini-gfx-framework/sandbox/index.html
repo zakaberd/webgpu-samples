@@ -62,6 +62,234 @@
         display: block;
         background: #222;
       }
+      .scene {
+        position: relative;
+        width: min(960px, 100%);
+        max-width: 100%;
+      }
+      .controls-panel {
+        display: grid;
+        gap: 0.75rem;
+        padding: clamp(0.85rem, 0.65rem + 1vw, 1.4rem);
+        border-radius: 0.9rem;
+        background: rgba(15, 15, 20, 0.78);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        box-shadow: 0 18px 45px rgba(0, 0, 0, 0.35);
+        color: #f4f4f6;
+      }
+      .controls-panel__header {
+        margin: 0;
+        font-size: 0.95rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        opacity: 0.75;
+      }
+      .controls-panel__list {
+        display: grid;
+        gap: 0.65rem;
+      }
+      .controls-panel__field {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 0.75rem;
+      }
+      .controls-panel__label {
+        font-size: 0.85rem;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        opacity: 0.8;
+      }
+      .controls-panel__input {
+        width: 6rem;
+        background: rgba(255, 255, 255, 0.08);
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        border-radius: 0.5rem;
+        padding: 0.25rem 0.55rem;
+        font: inherit;
+        color: inherit;
+      }
+      .controls-panel__input:focus {
+        border-color: rgba(255, 255, 255, 0.4);
+        outline: none;
+      }
+      .controls-panel__checkbox {
+        width: 1.1rem;
+        height: 1.1rem;
+        accent-color: #f0a5ff;
+      }
+      .compute-boids-scene {
+        width: min(1200px, 100%);
+        display: grid;
+        gap: clamp(1rem, 1.5vw, 1.5rem);
+        margin: 0 auto;
+      }
+      .compute-boids-layout {
+        display: grid;
+        gap: clamp(1rem, 1.5vw, 1.75rem);
+        grid-template-columns: minmax(0, 1fr) minmax(220px, 280px);
+        align-items: start;
+      }
+      .compute-boids-canvas-wrapper {
+        position: relative;
+      }
+      .compute-boids-canvas {
+        width: min(720px, 100%);
+        aspect-ratio: 16 / 9;
+        background: #050505;
+        border-radius: 1rem;
+        box-shadow: 0 24px 60px rgba(0, 0, 0, 0.45);
+      }
+      .compute-boids-stats {
+        position: absolute;
+        left: 1rem;
+        bottom: 1rem;
+        margin: 0;
+        padding: 0.75rem 1rem;
+        border-radius: 0.65rem;
+        background: rgba(0, 0, 0, 0.6);
+        font-size: 0.8rem;
+        line-height: 1.5;
+        pointer-events: none;
+        min-width: 12rem;
+      }
+      .multiple-canvases-scene {
+        width: min(1280px, 100%);
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        gap: clamp(1rem, 1.5vw + 0.75rem, 2rem);
+      }
+      .multiple-canvases-header {
+        display: grid;
+        gap: 0.75rem;
+        padding: clamp(1.25rem, 1vw + 1rem, 2rem);
+        background: rgba(18, 18, 22, 0.7);
+        border-radius: 1rem;
+        box-shadow: 0 12px 40px rgba(0, 0, 0, 0.35);
+      }
+      .multiple-canvases-header h1 {
+        margin: 0;
+        font-size: clamp(1.5rem, 1.1rem + 1.5vw, 2.2rem);
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+      }
+      .multiple-canvases-header p {
+        margin: 0;
+        line-height: 1.6;
+        opacity: 0.85;
+      }
+      .multiple-canvases-grid {
+        display: grid;
+        gap: clamp(0.75rem, 1vw, 1.25rem);
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      }
+      .product {
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+        padding: clamp(0.85rem, 0.65rem + 0.75vw, 1.25rem);
+        border-radius: 1rem;
+        background: rgba(17, 17, 20, 0.82);
+        border: 1px solid rgba(255, 255, 255, 0.06);
+        box-shadow: 0 22px 48px rgba(0, 0, 0, 0.35);
+      }
+      .product-canvas {
+        width: 100%;
+        aspect-ratio: 1;
+        border-radius: 0.9rem;
+        background: #151515;
+        display: block;
+      }
+      .product.size1 .product-canvas {
+        aspect-ratio: 1.15;
+      }
+      .product.size2 .product-canvas {
+        aspect-ratio: 0.85;
+      }
+      .product.size3 .product-canvas {
+        aspect-ratio: 1.4;
+      }
+      .product-label {
+        font-size: 0.85rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        opacity: 0.7;
+      }
+      .points-scene {
+        width: min(1100px, 100%);
+        margin: 0 auto;
+        display: grid;
+        gap: clamp(1rem, 1.5vw, 1.5rem);
+      }
+      .points-layout {
+        display: grid;
+        gap: clamp(1rem, 1.5vw, 1.5rem);
+        grid-template-columns: minmax(0, 1fr) minmax(220px, 260px);
+        align-items: start;
+      }
+      .points-canvas-wrapper {
+        position: relative;
+      }
+      .points-canvas {
+        width: min(700px, 100%);
+        aspect-ratio: 16 / 9;
+        background: radial-gradient(circle at 30% 20%, rgba(120, 120, 255, 0.12), transparent 60%),
+          radial-gradient(circle at 70% 30%, rgba(255, 150, 200, 0.12), transparent 65%),
+          #05060a;
+        border-radius: 1.1rem;
+        box-shadow: 0 20px 55px rgba(0, 0, 0, 0.4);
+      }
+      .transparent-canvas-scene {
+        display: grid;
+        gap: 1.25rem;
+        padding: clamp(1.5rem, 2vw + 1rem, 2.5rem);
+        border-radius: 1rem;
+        background:
+          radial-gradient(circle at 20% 20%, rgba(255, 230, 150, 0.25), transparent 55%),
+          radial-gradient(circle at 80% 15%, rgba(136, 206, 255, 0.22), transparent 45%),
+          linear-gradient(135deg, rgba(18, 18, 22, 0.92), rgba(12, 12, 16, 0.82));
+        box-shadow: 0 18px 60px rgba(0, 0, 0, 0.45);
+        color: #f5f5f5;
+        overflow: hidden;
+      }
+      .transparent-canvas-content {
+        position: relative;
+        z-index: 0;
+        max-width: min(42ch, 100%);
+        line-height: 1.6;
+      }
+      .transparent-canvas-content h1 {
+        margin: 0 0 0.5rem;
+        font-size: clamp(1.75rem, 1.2rem + 2vw, 2.5rem);
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+      .transparent-canvas-content p {
+        margin: 0 0 1rem;
+        opacity: 0.9;
+      }
+      .transparent-canvas-content em {
+        font-style: normal;
+        color: #ffe5a3;
+      }
+      .transparent-canvas-layer {
+        position: absolute;
+        inset: 0;
+        margin: auto;
+        width: min(420px, 60%);
+        height: min(420px, 60%);
+        pointer-events: none;
+        background: transparent !important;
+        border-radius: 1rem;
+        box-shadow: 0 30px 90px rgba(0, 0, 0, 0.46);
+      }
+      @media (max-width: 52rem) {
+        .transparent-canvas-layer {
+          width: min(340px, 70%);
+          height: min(340px, 70%);
+        }
+      }
       .info {
         position: fixed;
         top: 1rem;

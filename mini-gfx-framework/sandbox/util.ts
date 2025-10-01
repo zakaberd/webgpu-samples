@@ -54,9 +54,16 @@ export function quitIfWebGPUNotAvailable(
     return;
   }
 
-  device.lost.then((reason) => {
-    fail(`Device lost ("${reason.reason}"):\n${reason.message}`);
-  });
+  device.lost
+    .then((reason) => {
+      if (reason.reason === 'destroyed') {
+        return;
+      }
+      fail(`Device lost ("${reason.reason}"):\n${reason.message}`);
+    })
+    .catch((error) => {
+      console.warn('[mini-gfx] device.lost rejected', error);
+    });
   device.addEventListener('uncapturederror', (ev) => {
     fail(`Uncaptured error:\n${ev.error.message}`);
   });

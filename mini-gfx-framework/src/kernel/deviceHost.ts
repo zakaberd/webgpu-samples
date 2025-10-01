@@ -11,6 +11,7 @@ export interface DeviceHostOptions {
     format?: GPUTextureFormat;
     depthFormat?: GPUTextureFormat;
     sizeProvider?: () => { width: number; height: number };
+    alphaMode?: GPUCanvasAlphaMode;
   };
 }
 
@@ -50,17 +51,24 @@ export const defaultDeviceHostFactory: DeviceHostFactory = {
       const queue = device.queue;
       const limits = device.limits;
       const disposables: Array<() => void | Promise<void>> = [];
+      let disposed = false;
 
       if (options.onError) {
         const handleUncapturedError = (event: GPUUncapturedErrorEvent) => {
-          options.onError?.(event.error);
+          if (!disposed) {
+            options.onError?.(event.error);
+          }
         };
         device.addEventListener('uncapturederror', handleUncapturedError);
         disposables.push(() => device.removeEventListener('uncapturederror', handleUncapturedError));
 
         device.lost
           .then((info) => {
-            options.onError?.(new Error(`Device lost (${info.reason}): ${info.message}`));
+            if (!disposed) {
+              options.onError?.(
+                new Error(`Device lost (${info.reason}): ${info.message}`)
+              );
+            }
           })
           .catch(() => {
             /* ignore */
@@ -84,12 +92,14 @@ export const defaultDeviceHostFactory: DeviceHostFactory = {
             format: options.surfaceConfig?.format,
             depthFormat: options.surfaceConfig?.depthFormat,
             sizeProvider: options.surfaceConfig?.sizeProvider,
+            alphaMode: options.surfaceConfig?.alphaMode,
           });
         },
         createResourceRegistry(): ResourceRegistry {
           return createResourceRegistryImpl();
         },
         async dispose(): Promise<void> {
+          disposed = true;
           for (const dispose of disposables.splice(0, disposables.length)) {
             await dispose();
           }

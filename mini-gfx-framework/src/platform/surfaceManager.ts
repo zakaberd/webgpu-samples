@@ -4,6 +4,7 @@ export interface SurfaceManagerConfig {
   format?: GPUTextureFormat;
   depthFormat?: GPUTextureFormat;
   sizeProvider?: () => { width: number; height: number };
+  alphaMode?: GPUCanvasAlphaMode;
 }
 
 export interface FrameSize {
@@ -75,8 +76,10 @@ export class CanvasSurfaceManager implements SurfaceManager {
 
     const dpr = window.devicePixelRatio || 1;
     const providerSize = this.config.sizeProvider?.();
-    const width = (providerSize?.width ?? this.config.canvas.clientWidth) * dpr;
-    const height = (providerSize?.height ?? this.config.canvas.clientHeight) * dpr;
+    const logicalWidth = providerSize?.width ?? this.config.canvas.clientWidth;
+    const logicalHeight = providerSize?.height ?? this.config.canvas.clientHeight;
+    const width = Math.max(1, Math.floor(logicalWidth * dpr));
+    const height = Math.max(1, Math.floor(logicalHeight * dpr));
 
     this.config.canvas.width = width;
     this.config.canvas.height = height;
@@ -84,6 +87,7 @@ export class CanvasSurfaceManager implements SurfaceManager {
     this.context.configure({
       device: this.config.device,
       format: this.internalFormat,
+      ...(this.config.alphaMode ? { alphaMode: this.config.alphaMode } : {}),
     });
 
     if (this.internalDepthFormat) {
