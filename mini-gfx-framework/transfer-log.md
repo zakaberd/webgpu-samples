@@ -1,5 +1,5 @@
 # Transfer Log
-
+TEST
 ## Purpose
 Track ongoing work to consolidate selected WebGPU samples inside `mini-gfx-framework`, capture decisions, surface issues, and collect future enhancement ideas that flow from the transfer plan.
 
