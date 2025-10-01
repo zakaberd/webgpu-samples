@@ -498,7 +498,7 @@ export class MsdfTextRenderer {
   updateCamera(projection: Mat4, view: Mat4) {
     this.cameraArray.set(projection, 0);
     this.cameraArray.set(view, 16);
-        this.device.queue.writeBuffer(
+    this.device.queue.writeBuffer(
       this.cameraUniformBuffer,
       0,
       this.cameraArray.buffer as ArrayBuffer,
@@ -512,25 +512,3 @@ export class MsdfTextRenderer {
     renderPass.executeBundles(renderBundles);
   }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
